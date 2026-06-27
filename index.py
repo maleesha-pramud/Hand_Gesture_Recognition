@@ -19,6 +19,8 @@ with GestureRecognizer.create_from_options(options) as recognizer:
 
     i = cv2.imread(IMAGE_NAME)
     resized_i = cv2.resize(i, (512, 512), interpolation=cv2.INTER_LINEAR)
+    cv2.putText(resized_i, results.gestures[0][0].category_name, (20, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
+
     cv2.imshow('Image', resized_i)
     cv2.waitKey(0)
     cv2.destroyAllWindows()
