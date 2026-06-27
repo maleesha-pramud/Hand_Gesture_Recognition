@@ -15,7 +15,7 @@ options = GestureRecognizerOptions(
 with GestureRecognizer.create_from_options(options) as recognizer:
     image = mp.Image.create_from_file(IMAGE_NAME)
     results = recognizer.recognize(image)
-    print(results)
+    print(results.gestures[0][0].category_name, results.gestures[0][0].score)
 
     i = cv2.imread(IMAGE_NAME)
     resized_i = cv2.resize(i, (512, 512), interpolation=cv2.INTER_LINEAR)
